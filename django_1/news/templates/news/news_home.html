@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    <div class="features">
+        <h1>News</h1>
+        {% if news %}
+            {% for el in news %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.shortdiscription }}</p>
+                    <a href="{% url 'news-detail' el.id %}" class="btn btn-warning">View an article</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No articles</p>
+        {% endif %}
+    </div>
+{% endblock %}
